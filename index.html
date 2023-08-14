@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Making</title>
+    <link rel="icon" href="colormakingimg.png">
+    <style>
+      #myDiv {
+        background-color: rgb(69,11, 124);
+        margin: auto;
+      }
+      #mayColor{
+        justify-content: center;
+        text-align: center;
+        margin-top:50%;
+        width: 100%;
+        
+      }
+      #Heading{
+        width: fit-content;
+        margin: auto;
+        padding: 10px;
+        margin-top:40px ;
+      }
+      #myDiv{
+        border-radius: 10px;
+        height:57rem;
+      }
+    </style>
+  </head>
+  <body >
+
+   <div id="myDiv">
+    <div id="Heading">
+      <h1>Color Making</h1>
+    </div>
+   <div id="mayColor">
+    <input type="range"id="r" min="0"max="255"><span id="red">Red:%</span>
+    <br>
+    <br>
+    <br>
+    <input type="range"id="g"min="0"max="255"><span id="green">Green:%</span>
+    <br>
+    <br>
+    <br>
+    <input type="range"id="b"min="0"max="255"><span id="blue">Blue:%</span>
+    <br>
+   </div>
+   </div>
+
+
+    <script>
+
+    let oldr=0;
+    let oldg=0;
+    let oldb=0;    
+    const mainDiv=document.getElementById("myDiv");
+
+setInterval(function(){
+        let r=document.getElementById("r");
+        oldr=r.value;
+        document.getElementById("red").innerText=`Red :`+(oldr/255*100).toFixed(1)+`%`;                    
+        let g=document.getElementById("g");
+        oldg=g.value;
+        document.getElementById("green").innerText=`Green :`+(oldg/255*100).toFixed(1)+`%`;
+        let b=document.getElementById("b");
+        oldb=b.value;
+        document.getElementById("blue").innerText=`Blue :`+(oldb/255*100).toFixed(1)+`%`;
+},1);
+
+setInterval(function(){
+    // alert("old r "+oldr+" old g "+oldg+" old b "+oldb);
+        let div = document.getElementById("myDiv");
+        div.style.backgroundColor =`rgb(`+oldr+`,`+oldg+`,`+oldb+`)`;
+},1);
+    </script>
+  </body>
+</html>
